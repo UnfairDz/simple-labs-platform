@@ -1,0 +1,210 @@
+.content-container {
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lab-details-page {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lab-details-page-name {
+    font-size: 15px;
+    color: var(--secondary-color);
+    margin-bottom: 11px;
+}
+.lab-details-page-tech {
+    font-size: 16px;
+    margin-bottom: 17px;
+}
+.lab-details-page-description {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+.lab-details-page-second-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.lab-details-page-from-to-dates {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.lab-details-page-from-text {
+    color: var(--secondary-color);
+    font-size: 13px;
+}
+.lab-details-page-to-text {
+    display: flex;
+    justify-content: flex-end;
+    color: var(--secondary-color);
+    font-size: 13px;
+}
+.button {
+    width: 109px;
+    height: 40px;
+    border-radius: 10px;
+    font-size: 15px;
+    color: var(--white-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+} 
+.enroll-button {
+    background-color: var(--secondary-color);
+    margin-bottom: 17px;
+}
+.admin-buttons {
+    display: flex;
+}
+.update-button {
+    background-color: var(--main-color);
+    margin-right: 30px;
+}
+.delete-button {
+    background-color: var(--red-color);
+}
+
+.lab-details-page-capacity-text {
+    display: none;
+}
+.lab-details-page-capacity {
+    display: none;
+}
+.lab-details-page-spots-text {
+    display: none;
+}
+.lab-details-page-spots {
+    display: none;
+}
+.button-desktop {
+    display: none;
+}
+.admin-buttons-desktop {
+    display: none;
+}
+
+@media (min-width: 576px) { 
+    
+}
+  
+@media (min-width: 768px) { 
+    
+}
+  
+@media (min-width: 992px) { 
+    .lab-details-page {
+        width: 86.5625%;
+        flex-direction: row;
+        justify-content: space-between; 
+        margin-top: 93px;
+    }
+    .lab-details-page-first-section {
+        width: 64.440433213%;
+    }
+    .lab-details-page-name {
+        font-size: 32px;
+    }
+    .lab-details-page-tech {
+        font-size: 32px;
+    }
+    .lab-details-page-description {
+        font-size: 32px;
+        margin-bottom: 80px;
+    }
+    .lab-details-page-second-section {
+        display: flex;
+        flex-direction: column;
+        width: 31%;
+        height: fit-content;
+    }
+    .lab-details-page-from-to-dates {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 92px;
+    }
+    .lab-details-page-date-text {
+        font-size: 32px;
+        width: fit-content;
+    }
+    .lab-details-page-from-text {
+        font-size: 23px;
+    }
+    .lab-details-page-to-text {
+        font-size: 23px;
+    }
+    .lab-details-page-capacity-text {
+        display: block;
+        font-size: 23px;
+        color: var(--secondary-color);
+        align-self: flex-end;
+    }
+    .lab-details-page-capacity {
+        display: block;
+        font-size: 32px;
+        align-self: flex-end;
+        margin-bottom: 33px;
+    }
+    .lab-details-page-spots-text {
+        display: block;
+        font-size: 23px;
+        color: var(--secondary-color);
+        align-self: flex-end;
+    }
+    .lab-details-page-spots {
+        display: block;
+        font-size: 32px;
+        align-self: flex-end;
+    }
+    .button {
+        display: none;
+    }
+    .admin-buttons {
+        display: none;
+    }
+    .button-desktop {
+        width: 210px;
+        height: 77px;
+        font-size: 21.3333px;
+        display: block;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--white-color);
+    }
+    .enroll-button-desktop {
+        background-color: var(--secondary-color);
+        margin-bottom: 47px;
+    }
+    .admin-buttons-desktop {
+        display: flex;
+    }
+    .update-button-desktop {
+        background-color: var(--main-color);
+        margin-right: 59px;
+    }
+    .delete-button-desktop {
+        background-color: var(--red-color);
+    }
+}
+  
+@media (min-width: 1200px) { 
+
+}
+  
+@media (min-width: 1400px) { 
+    .lab-details-page-second-section {
+        width: 23%;
+    }
+}
+
+@media (min-width: 1800px) { 
+    .lab-details-page-second-section {
+        width: 17%;
+    }
+}
