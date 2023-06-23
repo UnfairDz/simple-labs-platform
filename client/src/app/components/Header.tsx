@@ -19,7 +19,7 @@ function Header() {
   return (
     <div className='navbar-container'>
         <div className='navbar'>
-            <div className={jomhuria.className + ' logo'}>HighLabs</div>
+            <Link href={'/'} className={jomhuria.className + ' logo'}>HighLabs</Link>
             <div className='header-buttons'>
                 <Link href="/sign-in" className={jua.className + ' signin'}>Sign in</Link>
                 <Link href="/sign-up" className={jua.className + ' signup'}>Sign up</Link>
