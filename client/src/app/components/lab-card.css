@@ -1,0 +1,144 @@
+.lab-card {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 98px;
+    background: #191555;
+    border-radius: 20px;
+    color: var(--white-color);    
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    padding: 13px 15px 14px 15px;
+}
+
+.lab-card-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.second-column {
+    align-items: flex-end;
+}
+
+.lab-card-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.lab-card-date-day {
+    width: 28px;
+    height: 27px;
+    background: var(--white-color);
+    border-radius: 10px;
+    color: #000;
+    align-self: end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lab-card-date-month {
+    margin-top: 5px;
+}
+
+.lab-card-enroll {
+    display: flex;
+    align-items: center;
+}
+
+.enroll-text {
+    padding-top: 5px;
+    margin-right: 5px;
+}
+
+.lab-name {
+    width: 115px;
+    line-height: 23px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 46px;
+}
+
+.lab-tech {
+    width: 128px;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 16px;
+}
+
+#jua-font {
+    font-weight: 800;
+}
+
+#jua-font-size {
+    font-size: 11px;
+}
+
+@media (min-width: 576px) { 
+    
+}
+  
+@media (min-width: 768px) { 
+    
+}
+  
+@media (min-width: 992px) { 
+    .lab-card {
+        width: 517px;
+        height: 168.89px;
+        margin-right: 56px;
+        margin-left: 0px;
+        margin-bottom: 60px;
+        padding: 15.51px 25.85px 24.13px 25.85px;
+    }
+    .lab-card:last-child {
+        margin-bottom: 123px;
+    }
+    .lab-name {
+        width: 143px;
+        height: 73px;
+        padding-top: 6.49px;
+        height: 73px;
+        line-height: 40px;
+    }
+    .lab-tech {
+        width: 220.59px;
+        height: 27.57px;
+        font-size: 24px;
+    }
+    .lab-card-date-day {
+        width: 48.25px;
+        height: 46.53px;
+    }
+    .lab-card-date-month {
+        margin-top: 7px;
+    }
+    .enroll-text {
+        height: 32.74px;
+        padding-top: 7px;
+    }
+    .right-arrow-icon {
+        width: 32.74px;
+        height: 32.74px;
+    }
+
+    #jua-font-size {
+        font-size: 21.3333px;
+    }
+    #jua-font {
+        font-size: 21.3333px;
+    }
+}
+  
+@media (min-width: 1200px) { 
+  
+}
+  
+@media (min-width: 1400px) { 
+  
+}

@@ -1,83 +1,46 @@
-import React from 'react'
-import Image from 'next/image'
+"use client";
+
+import React, { useEffect } from 'react'
 import Link from 'next/link'
-import { BsArrowRight } from 'react-icons/Bs';
+import Image from 'next/image'
+
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  setLabs,
+  selectLabs,
+} from '../redux/features/labSlice';
+import axios from 'axios';
+import LabCard from './components/LabCard'
+import { BiPlus } from 'react-icons/bi';
 
 import './home.css'
 
-import { jua, judson, jomhuria } from './fonts'
+import { judson, jomhuria } from './fonts'
 
 function Home() {
+  const labs = useSelector(selectLabs);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    async function fetchLabs() {
+      const response = await axios.get('http://localhost:5000/api/v1/labs');
+      dispatch(setLabs(response.data.data.data));
+    }
+    fetchLabs();
+  }, [dispatch]);
+
   return (
     <div className='content-container'>
         <Image className='hero-image' src="/images/hero image.png" alt="Hero image" width="1920" height="702" />
         
-        <h1 className={jomhuria.className + ' labs-section-title'}>Available Labs</h1>
+        <div className='section-title'>
+          <h1 className={jomhuria.className + ' labs-section-title'}>Available Labs</h1>
+          <Link href='/labs/new' className='section-title-plus-icon-container'><BiPlus className='section-title-plus-icon' /></Link>
+        </div>
         <div className='labs-section'>
-          <Link href='/labs/id'className='lab-card'>
-            <div className='lab-card-column'>
-              <div id='jua-font' className={jua.className + ' lab-name'}>Frontend dev Lab</div>
-              <div className={judson.className + ' lab-tech'}>NextJS ReactJS Redux</div>
-            </div>
-            <div className='lab-card-column second-column'>
-              <div className='lab-card-date'>
-                <div id='jua-font' className={jua.className+' lab-card-date-day'}>12</div>
-                <div id='jua-font-size' className={jua.className + ' lab-card-date-month'}>April</div>
-              </div>
-              <div className='lab-card-enroll'>
-                <div id='jua-font-size' className={jua.className + ' enroll-text'}>Enroll</div>
-                <BsArrowRight className='right-arrow-icon'></BsArrowRight>
-              </div>
-            </div>
-          </Link>
-          <Link href='/labs/id'className='lab-card'>
-            <div className='lab-card-column'>
-              <div id='jua-font' className={jua.className + ' lab-name'}>Backend dev Lab</div>
-              <div className={judson.className + ' lab-tech'}>NodeJS Express Mongodb</div>
-            </div>
-            <div className='lab-card-column second-column'>
-              <div className='lab-card-date'>
-                <div id='jua-font' className={jua.className+' lab-card-date-day'}>02</div>
-                <div id='jua-font-size' className={jua.className + ' lab-card-date-month'}>July</div>
-              </div>
-              <div className='lab-card-enroll'>
-                <div id='jua-font-size' className={jua.className + ' enroll-text'}>Enroll</div>
-                <BsArrowRight className='right-arrow-icon'></BsArrowRight>
-              </div>
-            </div>
-          </Link>
-          <Link href='/labs/id'className='lab-card'>
-            <div className='lab-card-column'>
-              <div id='jua-font' className={jua.className + ' lab-name'}>UI/UX Lab</div>
-              <div className={judson.className + ' lab-tech'}>Photoshop</div>
-            </div>
-            <div className='lab-card-column second-column'>
-              <div className='lab-card-date'>
-                <div id='jua-font' className={jua.className+' lab-card-date-day'}>24</div>
-                <div id='jua-font-size' className={jua.className + ' lab-card-date-month'}>September</div>
-              </div>
-              <div className='lab-card-enroll'>
-                <div id='jua-font-size' className={jua.className + ' enroll-text'}>Enroll</div>
-                <BsArrowRight className='right-arrow-icon'></BsArrowRight>
-              </div>
-            </div>
-          </Link>
-          <Link href='/labs/id'className='lab-card'>
-            <div className='lab-card-column'>
-              <div id='jua-font' className={jua.className + ' lab-name'}>Devops Lab</div>
-              <div className={judson.className + ' lab-tech'}>Kubernetes docker</div>
-            </div>
-            <div className='lab-card-column second-column'>
-              <div className='lab-card-date'>
-                <div id='jua-font' className={jua.className+' lab-card-date-day'}>12</div>
-                <div id='jua-font-size' className={jua.className + ' lab-card-date-month'}>April</div>
-              </div>
-              <div className='lab-card-enroll'>
-                <div id='jua-font-size' className={jua.className + ' enroll-text'}>Enroll</div>
-                <BsArrowRight className='right-arrow-icon'></BsArrowRight>
-              </div>
-            </div>
-          </Link>
+          {labs.length>0 ? labs.map((lab:any, index:any) =>  { 
+            return <LabCard key={lab._id} lab={lab} />}) : <h1 className={judson.className + ' no-lab-find-text'} >No Lab Available come back later</h1>
+          }
         </div>
     </div>
   )

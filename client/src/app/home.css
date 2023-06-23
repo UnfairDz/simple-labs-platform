@@ -8,8 +8,36 @@
     display: none;
 }
 
+.section-title {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 38px;
+    margin-bottom: 10px;
+}
 .labs-section-title {
-    display: none;
+    width: fit-content;
+    display: block;
+    font-size: 47px;
+    color: var(--secondary-color);     
+}
+.section-title-plus-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    margin-left: 11px;
+    margin-bottom: 11px;
+}
+.section-title-plus-icon {
+    width: 23px;
+    height: 23px;
+    color: var(--white-color);
 }
 
 .labs-section {
@@ -17,78 +45,13 @@
     flex-wrap: wrap;
 }
 
-.lab-card {
-    display: flex;
-    justify-content: space-between;
+.no-lab-find-text {
     width: 300px;
-    height: 98px;
-    background: #191555;
-    border-radius: 20px;
-    color: var(--white-color);    
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 30px;
-    padding: 13px 15px 14px 15px;
-}
-
-.lab-card-column {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.second-column {
-    align-items: flex-end;
-}
-
-.lab-card-date {
-    display: flex;
-    flex-direction: column;
-}
-
-.lab-card-date-day {
-    width: 28px;
-    height: 27px;
-    background: var(--white-color);
-    border-radius: 10px;
-    color: #000;
-    align-self: end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.lab-card-date-month {
-    margin-top: 5px;
-}
-
-.lab-card-enroll {
-    display: flex;
-    align-items: center;
-}
-
-.enroll-text {
-    padding-top: 5px;
-    margin-right: 5px;
-}
-
-.lab-name {
-    width: 115px;
-    line-height: 23px;
-    font-size: 14px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    height: 46px;
-}
-
-.lab-tech {
-    width: 128px;
-    font-size: 14px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    height: 16px;
-}
+    font-size: 14px; 
+    margin-bottom: 50px;
+} 
 
 #jua-font {
     font-weight: 800;
@@ -111,15 +74,38 @@
         display: block;
         width: 100%;
         height: 702px;
+        object-fit: cover;
     }
-    .labs-section-title {
+    .section-title {
+        display: flex;
+        align-items: center;
         width: 92%;
         margin-left: auto;
         margin-right: auto;
         margin-top: 113px;
+        margin-bottom: 20px;
+    }
+    .labs-section-title {
+        width: fit-content;
         display: block;
         font-size: 96px;
         color: var(--secondary-color);     
+    }
+    .section-title-plus-icon-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 41px;
+        height: 41px;
+        border-radius: 10px;
+        background-color: var(--secondary-color);
+        margin-left: 30px;
+        margin-bottom: 13px;
+    }
+    .section-title-plus-icon {
+        width: 51px;
+        height: 51px;
+        color: var(--white-color);
     }
     .labs-section {
         width: 92%;
@@ -127,39 +113,12 @@
         margin-right: auto;
         display: flex;
     }
-    .lab-card {
-        width: 517px;
-        height: 168.89px;
+    .no-lab-find-text {
+        width: fit-content;
         margin-right: 56px;
         margin-left: 0px;
-        padding: 15.51px 25.85px 24.13px 25.85px;
-    }
-    .lab-name {
-        width: 143px;
-        height: 73px;
-        padding-top: 6.49px;
-        height: 73px;
-        line-height: 40px;
-    }
-    .lab-tech {
-        width: 220.59px;
-        height: 27.57px;
-        font-size: 24px;
-    }
-    .lab-card-date-day {
-        width: 48.25px;
-        height: 46.53px;
-    }
-    .lab-card-date-month {
-        margin-top: 7px;
-    }
-    .enroll-text {
-        height: 32.74px;
-        padding-top: 7px;
-    }
-    .right-arrow-icon {
-        width: 32.74px;
-        height: 32.74px;
+        margin-bottom: 123px;
+        font-size: 24px; 
     }
     #jua-font-size {
         font-size: 21.3333px;
