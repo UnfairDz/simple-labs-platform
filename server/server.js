@@ -19,7 +19,10 @@ const DB = process.env.DATABASE.replace(
 mongoose.set("strictQuery", false);
 
 mongoose
+  //Hosted Database
   .connect(DB, {
+  //if you want to use instead the Local Database comment the line above and uncomment the line below
+  //.connect(process.env.DATABASE_LOCAL, {
     useNewUrlParser: true,
   })
   .then(() => console.log("DB connection successful!"));
