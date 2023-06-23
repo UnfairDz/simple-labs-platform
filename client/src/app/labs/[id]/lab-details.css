@@ -68,7 +68,13 @@
 .delete-button {
     background-color: var(--red-color);
 }
-
+.no-lab-find-text {
+    width: fit-content;
+    margin-left: 30px;
+    margin-right: auto;
+    font-size: 17px; 
+    margin-bottom: 50px;
+} 
 .lab-details-page-capacity-text {
     display: none;
 }
@@ -104,7 +110,7 @@
         margin-top: 93px;
     }
     .lab-details-page-first-section {
-        width: 64.440433213%;
+        width: 53%;
     }
     .lab-details-page-name {
         font-size: 32px;
@@ -119,15 +125,24 @@
     .lab-details-page-second-section {
         display: flex;
         flex-direction: column;
-        width: 31%;
+        width: fit-content;
         height: fit-content;
+    }
+    .lab-details-page-from-date-text {
+        margin-right: 30px;
     }
     .lab-details-page-from-to-dates {
         display: flex;
         justify-content: space-between;
         margin-bottom: 92px;
     }
+    .lab-details-page-from-text {
+        display: flex;
+        justify-content: flex-end;
+    }
     .lab-details-page-date-text {
+        display: flex;
+        justify-content: flex-end;
         font-size: 32px;
         width: fit-content;
     }
@@ -192,20 +207,41 @@
     .delete-button-desktop {
         background-color: var(--red-color);
     }
+    .no-lab-find-text {
+        width: fit-content;
+        margin-top: 93px;
+        margin-right: 0px;
+        margin-left: 129px;
+        margin-bottom: 123px;
+        font-size: 27px; 
+    }
 }
   
 @media (min-width: 1200px) { 
-
+    .lab-details-page-from-date-text {
+        margin-right: 70px;
+    }
+    .lab-details-page-first-section {
+        width: 55%;
+    }
 }
   
 @media (min-width: 1400px) { 
-    .lab-details-page-second-section {
-        width: 23%;
+    .lab-details-page-first-section {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1435px) { 
+    .lab-details-page-first-section {
+        width: 64.440433213%;
     }
 }
 
 @media (min-width: 1800px) { 
+    .lab-details-page-first-section {
+        width: 64.440433213%;
+    }
     .lab-details-page-second-section {
-        width: 17%;
     }
 }
