@@ -39,6 +39,7 @@
     font-size: 21px;
     color: var(--white-color);
     border: none;
+    cursor: pointer;
 }
 #jua-font {
     font-weight: 600;
