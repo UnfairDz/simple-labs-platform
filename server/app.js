@@ -6,7 +6,9 @@ const cors = require("cors");
 
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
+
 const labRouter = require("./routes/labRoutes");
+const userRouter = require("./routes/userRoutes");
 
 // Start express app
 const app = express();
@@ -37,6 +39,7 @@ app.use(xss());
 
 // 3) ROUTES
 app.use("/api/v1/labs", labRouter);
+app.use("/api/v1/users", userRouter);
 
 
 app.all("*", (req, res, next) => {
