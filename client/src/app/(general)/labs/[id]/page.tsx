@@ -6,10 +6,10 @@ import { useRouter } from 'next/navigation';
 import './lab-details.css'
 
 import { useDispatch } from 'react-redux';
-import { deleteLab } from '../../../redux/features/labSlice';
+import { deleteLab } from '../../../../redux/features/labSlice';
 import axios from 'axios';
 
-import { judson, jua } from '../../fonts'
+import { judson, jua } from '../../../fonts'
 
 function LabDetails() {
     const [loading, setLoading] = useState(true);

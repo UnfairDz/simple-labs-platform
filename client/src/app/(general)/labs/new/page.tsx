@@ -4,12 +4,12 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import './add-lab.css'
 
-import { jua } from '../../fonts'
+import { jua } from '../../../fonts'
 
 import { useDispatch } from 'react-redux';
 import {
   createLab,
-} from '../../../redux/features/labSlice';
+} from '../../../../redux/features/labSlice';
 import axios from 'axios';
 
 

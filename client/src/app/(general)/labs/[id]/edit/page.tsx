@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import './edit-lab.css'
 import { useRouter } from 'next/navigation';
 
-import { jua } from '../../../fonts'
+import { jua } from '../../../../fonts'
 
 import { useDispatch } from 'react-redux';
 import axios from 'axios';

@@ -8,14 +8,14 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   setLabs,
   selectLabs,
-} from '../redux/features/labSlice';
+} from '../../redux/features/labSlice';
 import axios from 'axios';
-import LabCard from './components/LabCard'
+import LabCard from '../components/LabCard'
 import { BiPlus } from 'react-icons/bi';
 
 import './home.css'
 
-import { judson, jomhuria } from './fonts'
+import { judson, jomhuria } from '../fonts'
 
 function Home() {
   const labs = useSelector(selectLabs);
