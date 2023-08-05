@@ -8,34 +8,59 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {IoMdArrowBack} from 'react-icons/io';
 
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/features/userSlice';
+
 import './sign-up.css';
 
 function SignUp() {
-    const [user, setUser] = useState({})
+    const dispatch = useDispatch();
+    const router = useRouter()
 
-    const { push } = useRouter();
+    const [user, setUser] = useState(
+        { 
+          firstName: "",
+          lastName: "",
+          email: "",
+          password: "",
+          passwordConfirm: ""
+        }
+      )
 
     const handleChange = (e: any) => {
         setUser({...user, [e.target.name]: e.target.value});
     }
 
-    const handleSubmit = async (e:any) => {
+    const handleSignup = async (e:any) => {
         e.preventDefault();
+
+        try {
+            const {firstName, lastName, email, password, passwordConfirm} = user;
+
+            const res = await axios({
+              withCredentials: true,
+              method: "POST",
+              url: "http://localhost:5000/api/v1/users/signup",
+              data: {
+                firstName,
+                lastName,
+                email,
+                password,
+                passwordConfirm,
+              },
+            });
         
-        // Make POST request to server with task data
-        await axios.post('http://localhost:5000/api/v1/users', user, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        })
-        .then(response => {
-        console.log(`User created successfully`);
-        push('/');
-        })
-        .catch(error => {
-        console.error(`Failed to create user: ${error.message}`);
-        // Handle the error, such as displaying an error message
-        })
+            if (res.data.status === "success") {
+              alert("Signup successfull!");
+              const user = res.data.data.user;
+              dispatch(loginSuccess({...user}));
+              window.setTimeout(() => {
+                router.push('/');
+              }, 1500);
+            }
+          } catch (err:any) {
+            alert("Errror: "+err.response.data.message);
+          }
     };
 
 
@@ -45,14 +70,14 @@ function SignUp() {
             <div className='sign-up-first-column'>
                 <div className={jomhuria.className + ' logo-with-container'}>HighLabs</div>
                 <Link href='/' className='icon-back-container'><IoMdArrowBack className='icon-back' /></Link>
-                <form onSubmit={handleSubmit} className='add-user-form'>
+                <form onSubmit={handleSignup} className='add-user-form'>
                     <label id='jua-font' className={jua.className + ' form-label'}>First name</label>
                     <br/>
-                    <input id='jua-font' className={jua.className + ' form-input'} type="text" name="first name" onChange={handleChange} required />
+                    <input id='jua-font' className={jua.className + ' form-input'} type="text" name="firstName" onChange={handleChange} required />
                     <br/>
                     <label id='jua-font' className={jua.className + ' form-label'}>Last name</label>
                     <br/>
-                    <input id='jua-font' className={jua.className + ' form-input'} type="text" name="last name" onChange={handleChange} required />
+                    <input id='jua-font' className={jua.className + ' form-input'} type="text" name="lastName" onChange={handleChange} required />
                     <br/>
                     <label id='jua-font' className={jua.className + ' form-label'}>Email</label>
                     <br/>
@@ -64,10 +89,10 @@ function SignUp() {
                     <br/>
                     <label id='jua-font' className={jua.className + ' form-label'}>Password confirm</label>
                     <br/>
-                    <input type='password' id='jua-font' className={jua.className + ' form-input'} name="password confirm" onChange={handleChange} required />
+                    <input type='password' id='jua-font' className={jua.className + ' form-input'} name="passwordConfirm" onChange={handleChange} required />
                     <br/>
                     <div id='jua-font' className={jua.className + ' terms-container'}>
-                        <input type="checkbox" name="terms" value="true" className='terms-checkbox' />
+                        <input type="checkbox" name="terms" className='terms-checkbox' required />
                         <p>I have read and agree to the <Link href='terms-of-service' className='terms-text'>Terms of Service</Link></p>
                     </div>
                     <br/>
