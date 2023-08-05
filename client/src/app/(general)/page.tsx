@@ -18,6 +18,7 @@ import './home.css'
 import { judson, jomhuria } from '../fonts'
 
 function Home() {
+  const user = useSelector((state:any) => state.user.user);;
   const labs = useSelector(selectLabs);
   const dispatch = useDispatch();
 
@@ -35,7 +36,11 @@ function Home() {
         
         <div className='section-title'>
           <h1 className={jomhuria.className + ' labs-section-title'}>Available Labs</h1>
+          {(user.role === 'admin') 
+          ?
           <Link href='/labs/new' className='section-title-plus-icon-container'><BiPlus className='section-title-plus-icon' /></Link>
+          :
+          <></>}
         </div>
         <div className='labs-section'>
           {labs.length>0 ? labs.map((lab:any, index:any) =>  { 

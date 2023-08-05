@@ -8,10 +8,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {IoMdArrowBack} from 'react-icons/io';
 
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../redux/features/userSlice';
+
 import './sign-in.css';
 
 function SignIn() {
-    const [user, setUser] = useState({})
+    const dispatch = useDispatch();
+    const router = useRouter()
+
+    const [user, setUser] = useState({email:'', password:''})
 
     const { push } = useRouter();
 
@@ -19,23 +25,33 @@ function SignIn() {
         setUser({...user, [e.target.name]: e.target.value});
     }
 
-    const handleSubmit = async (e:any) => {
+    const handleLogin = async (e:any) => {
         e.preventDefault();
+
+        try {
+            const {email, password} = user;
+
+            const res = await axios({
+              withCredentials: true,
+              method: "POST",
+              url: "http://localhost:5000/api/v1/users/login",
+              data: {
+                email,
+                password,
+              },
+            });
         
-        // Make POST request to server with task data
-        await axios.post('http://localhost:5000/api/v1/users', user, {
-        headers: {
-            'Content-Type': 'application/json'
-        }
-        })
-        .then(response => {
-        console.log(`User created successfully`);
-        push('/');
-        })
-        .catch(error => {
-        console.error(`Failed to create user: ${error.message}`);
-        // Handle the error, such as displaying an error message
-        })
+            if (res.data.status === "success") {
+              alert("Logged in successfully!");
+              const user = res.data.data.user;
+              dispatch(loginSuccess({...user}));
+              window.setTimeout(() => {
+                router.push('/');
+              }, 1500);
+            }
+          } catch (err:any) {
+            alert("Errror: "+err.response.data.message);
+          }
     };
 
 
@@ -45,7 +61,7 @@ function SignIn() {
             <div className='sign-up-first-column'>
                 <div className={jomhuria.className + ' logo-with-container'}>HighLabs</div>
                 <Link href='/' className='icon-back-container'><IoMdArrowBack className='icon-back' /></Link>
-                <form onSubmit={handleSubmit} className='add-user-form'>
+                <form onSubmit={handleLogin} className='add-user-form'>
                     <label id='jua-font' className={jua.className + ' form-label'}>Email</label>
                     <br/>
                     <input type='email' id='jua-font' className={jua.className + ' form-input'} name="email" onChange={handleChange} required />
