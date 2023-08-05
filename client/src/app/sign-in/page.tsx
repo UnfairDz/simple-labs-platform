@@ -19,8 +19,6 @@ function SignIn() {
 
     const [user, setUser] = useState({email:'', password:''})
 
-    const { push } = useRouter();
-
     const handleChange = (e: any) => {
         setUser({...user, [e.target.name]: e.target.value});
     }
