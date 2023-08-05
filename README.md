@@ -43,8 +43,6 @@ The implementation process involved:
 5. Connecting the client-side to the server-side by making API requests to the backend endpoints.
 7. Implementing client-side form validation and error handling.
 
-> **_NOTE:_** The user authentication and the enroll functionalities are not implemented in the client.
-
 ## State Management with Redux
 
 For state management, Redux was used as a state container. Redux helps manage the application's global state and facilitates communication between different components.
