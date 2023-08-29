@@ -63,18 +63,18 @@ function Header() {
         <div className='navbar-container'>
             <div className='navbar'>
                 <Link href={'/'} className={jomhuria.className + ' logo'}>HighLabs</Link>
-                <div className='header-buttons'>
+                {/* <div className='header-buttons'>
                     <Link href="/sign-in" className={jua.className + ' signin'}>Sign in</Link>
                     <Link href="/sign-up" className={jua.className + ' signup'}>Sign up</Link>
                 </div>
-                <RxHamburgerMenu className='menu-icon' onClick={handleMenu}></RxHamburgerMenu>
+                <RxHamburgerMenu className='menu-icon' onClick={handleMenu}></RxHamburgerMenu> */}
             </div>
-            <div id="nav" className={isOpen ? "open" : "closed"}>
+            {/* <div id="nav" className={isOpen ? "open" : "closed"}>
                 <div className='menu'>
                     <Link href="/sign-in" className={jua.className + ' link'}>Sign in</Link>
                     <Link href="/sign-up" className={jua.className + ' link'}>Sign up</Link>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
