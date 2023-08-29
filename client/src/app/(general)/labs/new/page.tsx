@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
 import './add-lab.css'
 
 import { jua } from '../../../fonts'
@@ -17,7 +16,6 @@ function AddLabForm() {
   const [lab, setLab] = useState({})
 
   const dispatch = useDispatch();
-  const { push } = useRouter();
 
   const handleChange = (e: any) => {
     setLab({...lab, [e.target.name]: e.target.value});
@@ -34,7 +32,7 @@ function AddLabForm() {
     })
     .then(response => {
       console.log(`Lab created successfully`);
-      push('/');
+      location.assign('/');
     })
     .catch(error => {
       console.error(`Failed to create lab: ${error.message}`);
