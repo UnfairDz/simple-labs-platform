@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import './edit-lab.css'
-import { useRouter } from 'next/navigation';
 
 import { jua } from '../../../../fonts'
 
@@ -21,7 +20,6 @@ function LabEdit() {
       capacity: '',
   })
   const dispatch = useDispatch();
-  const { push } = useRouter();
 
   useEffect(() => {
       const url = window.location.href;
@@ -52,7 +50,7 @@ function LabEdit() {
     })
     .then(response => {
       console.log(`Lab updated successfully`);
-      push(`/labs/${id}`);
+      location.assign(`/labs/${id}`);
     })
     .catch(error => {
       console.error(`Failed to update lab: ${error.message}`);

@@ -21,7 +21,7 @@ export async function generateStaticParams() {
   async function getLab(id:any) {
     const res = await fetch(`http://localhost:5000/api/v1/labs/${id}`, {
       next: {
-        revalidate: 60
+        revalidate: 0
       }
     })
   
