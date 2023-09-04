@@ -7,16 +7,6 @@ import './lab-details.css'
 import { judson, jua } from '../../../fonts'
 
 import DeleteLab from './DeleteLab'
-
-export async function generateStaticParams() {
-    const res = await fetch('http://localhost:5000/api/v1/labs')
-  
-    const labs = await res.json()
-   
-    return labs.data.data.map((lab:any) => ({
-      id: lab.id
-    }))
-  }
   
   async function getLab(id:any) {
     const res = await fetch(`http://localhost:5000/api/v1/labs/${id}`, {

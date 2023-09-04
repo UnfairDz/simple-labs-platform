@@ -10,8 +10,7 @@ import { jomhuria } from '../fonts'
 
 import LabList from './LabList';
 
-function Home({ user }: any) {
-  console.log(user);
+function Home() {
   return (
     <div className='content-container'>
         <Image className='hero-image' src="/images/hero image.png" alt="Hero image" width="1920" height="702" />
