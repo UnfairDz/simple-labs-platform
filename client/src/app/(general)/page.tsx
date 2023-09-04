@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -9,6 +9,7 @@ import './home.css'
 import { jomhuria } from '../fonts'
 
 import LabList from './LabList';
+import Loading from './loading';
 
 function Home() {
   return (
@@ -24,7 +25,9 @@ function Home() {
           <></>*/}
         </div>
         <div className='labs-section'>
-          <LabList />
+          <Suspense fallback={<Loading />}>
+            <LabList />
+          </Suspense>
         </div>
     </div>
   )

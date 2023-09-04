@@ -9,6 +9,9 @@ import { judson, jua } from '../../../fonts'
 import DeleteLab from './DeleteLab'
   
   async function getLab(id:any) {
+    //imitate delay
+    await new Promise(resolve => setTimeout(resolve, 3000))
+    
     const res = await fetch(`http://localhost:5000/api/v1/labs/${id}`, {
       next: {
         revalidate: 0

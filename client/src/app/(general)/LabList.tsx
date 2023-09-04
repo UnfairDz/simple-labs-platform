@@ -1,8 +1,12 @@
+import { resolve } from 'path';
 import LabCard from '../components/LabCard'
 
 import { judson } from '../fonts'
 
 async function getLabs() {
+  //imitate delay
+  await new Promise(resolve => setTimeout(resolve, 3000))
+
   const res = await fetch('http://localhost:5000/api/v1/labs', {
     next: {
       revalidate: 0 // use 0 to opt out of using cache
